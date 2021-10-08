@@ -34,7 +34,6 @@ export class BoardComponent implements OnInit {
     if (this.botIsPlaying && this.xIsNext === false && !this.winner) {
       const idx = this.botMove();
       if (idx != -1) this.makeMove(idx);
-      console.log(idx);
     }
   }
 
@@ -120,22 +119,22 @@ export class BoardComponent implements OnInit {
 
               switch (i) {
                 case 0:
-                  if (this.squares[8] === 'O') score += 1;
+                  if (this.squares[8] === 'O') score += 2;
                   score += 1;
                   break;
                 case 2:
-                  if (this.squares[6] === 'O') score += 1;
+                  if (this.squares[6] === 'O') score += 2;
                   score += 1;
                   break;
                 case 4:
                   score += 0.5;
                   break;
                 case 6:
-                  if (this.squares[2] === 'O') score += 1;
+                  if (this.squares[2] === 'O') score += 2;
                   score += 1;
                   break;
                 case 8:
-                  if (this.squares[0] === 'O') score += 1;
+                  if (this.squares[0] === 'O') score += 2;
                   score += 1;
               }
 
