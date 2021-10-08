@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Current Player: {{ player }}</h1>
+  <div class="options">
+    <button nbButton outline status="danger" (click)="newGame()">
+      Start new Game
+    </button>
+    <nb-toggle [(checked)]="botIsPlaying">
+      <label for="">BOT</label>
+    </nb-toggle>
+  </div>
+
+  <h2 *ngIf="winner">Player {{ winner }} won the game!</h2>
+
+  <div class="board">
+    <div class="score x">
+      <span class="player">X</span>
+      <span>{{ xWins }}</span>
+    </div>
+    <main>
+      <app-square
+        *ngFor="let val of squares; let i = index"
+        [value]="val"
+        (click)="makeMove(i)"
+      ></app-square>
+    </main>
+    <div class="score o">
+      <span class="player">O</span>
+      <span>{{ oWins }}</span>
+    </div>
+  </div>
+</div>
